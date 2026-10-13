@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import GuessInSix from './components/GuessInSix';
-//import Clock from './components/Clock';
+import Clock from './components/Clock';
 
 export default function App() {
   const [game, setGame] = useState('');

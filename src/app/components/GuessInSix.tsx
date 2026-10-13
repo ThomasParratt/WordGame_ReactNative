@@ -7,8 +7,8 @@ import {
   StyleSheet,
   useWindowDimensions,
 } from 'react-native';
-//import answers from '../assets/answers.json';
-//import words from '../assets/words.json';
+import answers from '../assets/answers.json';
+import words from '../assets/words.json';
 
 const KEY_ROWS = [
   ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
