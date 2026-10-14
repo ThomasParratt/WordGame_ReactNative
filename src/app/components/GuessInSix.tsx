@@ -4,6 +4,7 @@ import {
   Text,
   Pressable,
   Animated,
+  ScrollView,
   StyleSheet,
   useWindowDimensions,
 } from 'react-native';
@@ -253,7 +254,11 @@ export default function GuessInSix() {
       )}
 
       {/* Board */}
-      <View style={styles.board}>
+      <ScrollView
+        style={styles.boardScroll}
+        contentContainerStyle={styles.board}
+        showsVerticalScrollIndicator={false}
+      >
         {Array.from({ length: 6 }).map((_, row) => (
           <View key={row} style={styles.boardRow}>
             {Array.from({ length: 5 }).map((__, col) => {
@@ -271,7 +276,7 @@ export default function GuessInSix() {
             })}
           </View>
         ))}
-      </View>
+      </ScrollView>
 
       {/* Keyboard */}
       <View style={styles.keyboard}>
@@ -316,9 +321,8 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: 70,
-    paddingBottom: 24,
-    justifyContent: 'space-between',
+    paddingTop: 16,
+    paddingBottom: 16,
   },
   banner: {
     position: 'absolute',
@@ -335,7 +339,12 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'center',
   },
+  boardScroll: {
+    flex: 1,
+    width: '100%',
+  },
   board: {
+    alignItems: 'center',
     gap: 4,
   },
   boardRow: {

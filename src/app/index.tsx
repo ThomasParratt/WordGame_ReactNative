@@ -7,7 +7,7 @@ export default function App() {
   const [game, setGame] = useState('');
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, !game && styles.menuContainer]}>
       {!game && (
         <View style={styles.card}>
           <Text style={styles.label}>Choose game mode:</Text>
@@ -29,7 +29,8 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, paddingTop: 60, alignItems: 'center' },
+  container: { flex: 1 },
+  menuContainer: { paddingTop: 60, alignItems: 'center' },
   card: {
     backgroundColor: '#fff',
     padding: 24,
