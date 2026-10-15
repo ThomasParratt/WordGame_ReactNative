@@ -330,7 +330,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingTop: 60,
-    paddingBottom: 24,
+    paddingBottom: 80,
   },
   banner: {
     backgroundColor: '#1f2937',

@@ -321,14 +321,14 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: 16,
-    paddingBottom: 16,
+    paddingTop: 50,
+    paddingBottom: 80,
   },
   banner: {
     position: 'absolute',
     top: 30,
     zIndex: 10,
-    backgroundColor: '#1f2937',
+    backgroundColor: '#090b0e',
     paddingHorizontal: 16,
     paddingVertical: 10,
     borderRadius: 6,
