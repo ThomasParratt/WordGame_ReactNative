@@ -6,7 +6,7 @@ import {
   Animated,
   ScrollView,
   StyleSheet,
-  useWindowDimensions,
+  useWindowDimensions
 } from 'react-native';
 import answers from '../assets/answers.json';
 import words from '../assets/words.json';
@@ -149,7 +149,7 @@ function Tile({ letter, result, anim, col, size }) {
 
 /* ------------------------------ Main component ----------------------------- */
 
-export default function GuessInSix() {
+export default function GuessInSix({ onHome }) {
   const { width } = useWindowDimensions();
   const tileSize = Math.min((width - 32) / 5 - 4, 64);
 
@@ -247,6 +247,15 @@ export default function GuessInSix() {
 
   return (
     <View style={styles.screen}>
+      <Pressable
+        accessibilityLabel="Return to home"
+        accessibilityRole="button"
+        onPress={onHome}
+        style={({ pressed }) => [styles.homeButton, pressed && { opacity: 0.6 }]}
+      >
+        <Text style={styles.homeButtonText}>{"<"}</Text>
+      </Pressable>
+
       {(finished || notWord) && (
         <View style={styles.banner}>
           <Text style={styles.bannerText}>{message}</Text>
@@ -321,8 +330,22 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: 50,
+    paddingTop: 20,
     paddingBottom: 80,
+  },
+  homeButton: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#3b82f6',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 6,
+    marginHorizontal: 16,
+    marginBottom: 12,
+  },
+  homeButtonText: {
+    color: '#fff',
+    fontWeight: '600',
+    fontSize: 24
   },
   banner: {
     position: 'absolute',

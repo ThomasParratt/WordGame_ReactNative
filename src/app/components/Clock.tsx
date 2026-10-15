@@ -137,7 +137,7 @@ function Tile({ letter, result, anim, col, size }) {
 
 /* ------------------------------ Main component ----------------------------- */
 
-export default function Clock() {
+export default function Clock({ onHome }) {
   const { width } = useWindowDimensions();
   const tileSize = Math.min((width - 32) / 5 - 4, 64);
 
@@ -255,6 +255,15 @@ export default function Clock() {
 
   return (
     <View style={styles.screen}>
+      <Pressable
+        accessibilityLabel="Return to home"
+        accessibilityRole="button"
+        onPress={onHome}
+        style={({ pressed }) => [styles.homeButton, pressed && { opacity: 0.6 }]}
+      >
+        <Text style={styles.homeButtonText}>{"<"}</Text>
+      </Pressable>
+
       {/* Timer / status banner */}
       <View style={styles.banner}>
         <Text style={styles.bannerText}>{win || notWord ? message : seconds}</Text>
@@ -329,8 +338,22 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: 60,
+    paddingTop: 20,
     paddingBottom: 80,
+  },
+  homeButton: {
+    alignSelf: 'flex-start',
+    backgroundColor: '#3b82f6',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 6,
+    marginHorizontal: 16,
+    marginBottom: 12,
+  },
+  homeButtonText: {
+    color: '#fff',
+    fontWeight: '600',
+    fontSize: 24
   },
   banner: {
     backgroundColor: '#1f2937',

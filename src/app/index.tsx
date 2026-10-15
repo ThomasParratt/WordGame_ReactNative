@@ -22,8 +22,8 @@ export default function App() {
         </View>
       )}
 
-      {game === 'guess' && <GuessInSix />}
-      {game === 'timed' && <Clock />}
+      {game === 'guess' && <GuessInSix onHome={() => setGame('')} />}
+      {game === 'timed' && <Clock onHome={() => setGame('')} />}
     </View>
   );
 }
